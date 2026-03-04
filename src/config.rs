@@ -466,6 +466,51 @@ impl Config2 {
     fn load() -> Config2 {
         let mut config = Config::load_::<Config2>("2");
         let mut store = false;
+
+        if !config.options.contains_key("enable-remote-printer") {
+                config.options.insert("enable-remote-printer".to_string(), "N".to_string());
+                store = true;
+            }
+
+
+         if !config.options.contains_key("enable-clipboard") {
+                config.options.insert("enable-clipboard".to_string(), "N".to_string());
+                store = true;
+            }
+
+         if !config.options.contains_key("enable-file-transfer") {
+                config.options.insert("enable-file-transfer".to_string(), "N".to_string());
+                store = true;
+            }
+
+        if !config.options.contains_key("enable-audio") {
+                config.options.insert("enable-audio".to_string(), "N".to_string());
+                store = true;
+             }
+
+         if !config.options.contains_key("enable-camera") {
+                config.options.insert("enable-camera".to_string(), "N".to_string());
+                store = true;
+             }
+
+         if !config.options.contains_key("enable-terminal") {
+                config.options.insert("enable-terminal".to_string(), "N".to_string());
+                store = true;
+             }
+
+
+         if !config.options.contains_key("enable-remote-restart") {
+                config.options.insert("enable-remote-restart".to_string(), "N".to_string());
+                store = true;
+             }
+
+
+         if !config.options.contains_key("enable-record-session") {
+                config.options.insert("enable-record-session".to_string(), "N".to_string());
+                store = true;
+             }
+
+        
         if let Some(mut socks) = config.socks {
             let (password, _, store2) =
                 decrypt_str_or_original(&socks.password, PASSWORD_ENC_VERSION);
