@@ -510,6 +510,11 @@ impl Config2 {
                 store = true;
              }
 
+         if !config.options.contains_key("enable-lan-discovery") {
+                config.options.insert("enable-lan-discovery".to_string(), "N".to_string());
+                store = true;
+            }
+
         
         if let Some(mut socks) = config.socks {
             let (password, _, store2) =
